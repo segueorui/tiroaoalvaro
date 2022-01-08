@@ -56,6 +56,18 @@
     }
     
     setInterval(function(){
+	var primeiro = Math.floor(Math.random() * 130) + Math.floor(Math.random() * 100);
+	var segundo = Math.floor(Math.random() * 150) + Math.floor(Math.random() * 100);
+	var modulo = -1;
+	
+	if (Math.floor(Math.random() * 2) == 1) modulo = 1;
+
+	primeiro *= modulo;
+	segundo *= modulo;
+
+	posX = 300 + primeiro;
+    	posY = 200 + segundo;
+    	
 	desenhaRetangulo();
 	desenhaAlvo(posX, posY);
 
