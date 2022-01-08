@@ -2,6 +2,7 @@
 
 <script>
 
+    var placar = 0;
     var tela = document.querySelector('canvas');
     var pincel = tela.getContext('2d');
 
@@ -23,20 +24,32 @@
     desenhaCirculo(300,200, raio, 'red');
 
     function dispara(evento) {
-
+    
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
 
-
-        if (x > 300 - raio 
-            && x < 300 + raio
-                && y > 200 - raio 
-                    && y < 200 + raio) {
-
-            alert('Acertou');
+        if (x > 300 - raio && x < 300 + raio && y > 200 - raio && y < 200 + raio) {
+            document.getElementById("placar").innerHTML = (placar += 100) + " pontos.";
         }
+        else if (x > 300 - (raio + 10) && x < 300 + (raio + 10) && y > 200 - (raio + 10) && y < 200 + (raio + 10)) {
+            document.getElementById("placar").innerHTML = (placar += 75) + " pontos.";
+        }
+        else if (x > 300 - (raio + 20) && x < 300 + (raio + 20) && y > 200 - (raio + 20) && y < 200 + (raio + 20)) {
+            document.getElementById("placar").innerHTML = (placar += 50) + " pontos.";
+        }
+        
     }
 
     tela.onclick = dispara;
 
 </script>
+<p id="placar"></p>
+
+
+
+
+
+
+
+
+
